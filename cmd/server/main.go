@@ -1,15 +1,11 @@
 package main
 
 import (
-	"log"
-	"net/http"
-
-	"github.com/craigbwagner/product-catalog-service-go/internal/product"
+	"github.com/craigbwagner/product-catalog-service-go/internal/server"
 )
 
 func main() {
-	handler := product.Handler()
+	r := server.Router()
 
-	log.Println("Starting server on port 8080")
-	log.Fatal(http.ListenAndServe(":8080", handler))
+	server.Start(r)
 }
