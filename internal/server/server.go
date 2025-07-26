@@ -8,6 +8,6 @@ import (
 )
 
 func Start(r *chi.Mux) {
-	log.Println("Starting server on port 8080")
-	log.Fatal(http.ListenAndServe(":8080", r))
+	log.Println("Starting server on port 3000")
+	log.Fatal(http.ListenAndServe(":3000", r))
 }
