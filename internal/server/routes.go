@@ -1,8 +1,7 @@
 package server
 
 import (
-	"net/http"
-
+	"github.com/craigbwagner/product-catalog-service-go/internal/product"
 	"github.com/go-chi/chi/v5"
 	"github.com/go-chi/chi/v5/middleware"
 )
@@ -12,9 +11,10 @@ func Router() *chi.Mux {
 
 	r.Use(middleware.Logger)
 
-	r.Get("/", func(w http.ResponseWriter, r *http.Request) {
-		w.Write([]byte("Hello world!"))
+	r.Route("/products", func(r chi.Router) {
+		r.Get("/", product.List)
 	})
+
 
 	return r
 }
